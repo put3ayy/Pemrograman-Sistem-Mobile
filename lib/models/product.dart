@@ -88,7 +88,7 @@ class Product {
       return total;
   }
 
-  void SimulasiPenjualanhabis(int stockAwal) {
+  void simulasiPenjualanhabis(int stockAwal) {
   int stock = stockAwal;
   print('\nMulai simulasi penjualan, stocl awal: $stock');
     while (stock >0) {
@@ -198,7 +198,7 @@ double hitungTotalBelanja(List<Product> keranjang) {
 }
 
 // Langkah 1: Variabel dan tipe data produk
-void Langkah1VariabeldanTipedata() {
+void langkah1VariabeldanTipedata() {
   print("\n\nLangkah 1: Variabel dan Tipe Data");
 
   var namaProdukvar = 'Kaos Polos';
@@ -221,8 +221,8 @@ void Langkah1VariabeldanTipedata() {
   print('Nama Produk  : $namaProduk');
   print('Status Tersedia  : $statusTersedia');
 
-  List<String> KategoriProduk = ['Elektronik', 'Fashion', 'Makanan'];
-  print('Kategori Produk  : $KategoriProduk');
+  List<String> kategoriProduk = ['Elektronik', 'Fashion', 'Makanan'];
+  print('Kategori Produk  : $kategoriProduk');
 
   Map<String, dynamic> produkMentah = {
     'id' : 'P001',
@@ -294,7 +294,7 @@ void langkah3ControlFlow() {
   List<double> hargaBelanja = [15000, 25000, 40000];
   print('Total belanja    : ${totalBelanja(hargaBelanja)}');
 
-  SimulasiPenjualanhabis(3);
+  simulasiPenjualanhabis(3);
 
   print('Diskon elektronik  : ${diskonBerdasarkanKategori('Elektronik')}%');
   print('Diskon fashion     : ${diskonBerdasarkanKategori('Fashion')}%');
@@ -339,7 +339,7 @@ void langkah5ClassProduct() {
 }
 
 // Data Total Belanja
-void TotalBelanja() {
+void totallBelanja() {
   print('Langkah 6: Daftar Produk & Total Belanja');
 
   for (var produk in daftarProduk) {
@@ -357,5 +357,5 @@ void main() {
   langkah3ControlFlow();
   langkah4Function();
   langkah5ClassProduct();*/
-  TotalBelanja();
+  totallBelanja();
 }
