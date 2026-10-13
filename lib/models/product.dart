@@ -88,16 +88,6 @@ class Product {
       return total;
   }
 
-  void simulasiPenjualanhabis(int stockAwal) {
-  int stock = stockAwal;
-  print('\nMulai simulasi penjualan, stocl awal: $stock');
-    while (stock >0) {
-      stock --;
-      print('Produk terjual, sisa stock: $stock');
-    }
-    print('Stok Habis!');
-  }
-
   double diskonBerdasarkanKategori(String kategori) {
   double persenDiskon;
   switch (kategori) {
@@ -127,12 +117,13 @@ List<Product> daftarProduk = [
     stock: 12,
   ),
 
-  Product(id: 2, 
-  name: 'Kaos Polos', 
-  price: 60000, 
-  imageUrl: 'https://contoh.com/kaos.jpg', 
-  category: 'Fashion', 
-  stock: 30
+  Product(
+    id: 2,
+    name: 'Kaos Polos',
+    price: 60000,
+    imageUrl: 'https://contoh.com/kaos.jpg',
+    category: 'Fashion',
+    stock: 30
   ),
 
   Product(
@@ -153,6 +144,7 @@ List<Product> daftarProduk = [
     stock: 0,
     description: 'Headset wireless dengan noise cancelling.',
   ),
+
   Product(
     id: 5,
     name: 'Mie Instan Goreng',
@@ -161,6 +153,7 @@ List<Product> daftarProduk = [
     category: 'Makanan',
     stock: 100,
   ),
+
   Product(
     id: 6,
     name: 'Kopi Sachet',
@@ -169,6 +162,7 @@ List<Product> daftarProduk = [
     category: 'Makanan',
     stock: 50,
   ),
+
   Product(
     id: 7,
     name: 'Celana Jeans',
@@ -178,6 +172,7 @@ List<Product> daftarProduk = [
     stock: 8,
     description: 'Celana jeans slim fit warna biru.',
   ),
+
   Product(
     id: 8,
     name: 'Power Bank 10000mAh',
@@ -185,6 +180,71 @@ List<Product> daftarProduk = [
     imageUrl: 'https://contoh.com/powerbank.jpg',
     category: 'Elektronik',
     stock: 4,
+  ),
+
+  Product(
+    id: 9, 
+    name: 'Jaket Hoodie', 
+    price: 220000, 
+    imageUrl: 'hoodie.jpg', 
+    category: 'Fashion', 
+    stock: 15
+    ),
+
+  DiskonProduk(
+    id: 10, 
+    name: 'Smartwatch', 
+    price: 450000, 
+    imageUrl: 'smartwatch.jpg', 
+    category: 'Elektronik', 
+    stock: 5, 
+    diskonProduk: 20
+    ),
+
+  Product(
+    id: 11, 
+    name: 'Keripik Singkong', 
+    price: 12000, 
+    imageUrl: 'keripik.jpg', 
+    category: 'Makanan', 
+    stock: 60
+    ),
+
+  Product(
+    id: 12, 
+    name: 'Mouse Wireless', 
+    price: 95000, 
+    imageUrl: 'mouse.jpg', 
+    category: 'Elektronik', 
+    stock: 2
+    ),
+
+  DiskonProduk(
+    id: 13, 
+    name: 'Kemeja Flanel', 
+    price: 180000, 
+    imageUrl: 'flanel.jpg', 
+    category: 'Fashion', 
+    stock: 10, 
+    diskonProduk: 10
+  ),
+
+  Product(
+    id: 14, 
+    name: 'Teh Botol', 
+    price: 5000, 
+    imageUrl: 'teh.jpg', 
+    category: 'Makanan', 
+    stock: 0
+  ),
+  
+  Product(
+    id: 15, 
+    name: 'Tas Ransel', 
+    price: 275000, 
+    imageUrl: 'tas.jpg', 
+    category: 'Fashion', 
+    stock: 7
   ),
 ];
 
@@ -195,147 +255,6 @@ double hitungTotalBelanja(List<Product> keranjang) {
     total += keranjang[i].price;
   }
   return total;
-}
-
-// Langkah 1: Variabel dan tipe data produk
-void langkah1VariabeldanTipedata() {
-  print("\n\nLangkah 1: Variabel dan Tipe Data");
-
-  var namaProdukvar = 'Kaos Polos';
-  namaProdukvar = 'Kaos Polos Edisi Baru';
-
-  final tanggalInput = DateTime.now();
-  const namaToko  = 'TokoKita';
-
-  print('var (bisa diubah)  : $namaProdukvar');
-  print('final (diisi 1x)   : $tanggalInput');
-  print('const (tetap)      : $namaToko');
-
-  int stock = 25;
-  double harga = 7500;
-  String namaProduk = 'Sepatu Sneakers';
-  bool statusTersedia = true;
-
-  print('Stock      : $stock');
-  print('Harga       : $harga');
-  print('Nama Produk  : $namaProduk');
-  print('Status Tersedia  : $statusTersedia');
-
-  List<String> kategoriProduk = ['Elektronik', 'Fashion', 'Makanan'];
-  print('Kategori Produk  : $kategoriProduk');
-
-  Map<String, dynamic> produkMentah = {
-    'id' : 'P001',
-    'nama' : 'Sepatu Sneakers',
-    'harga' : 250000.0,
-    'stock' : 25,
-    'kategori' : 'Fashion',
-  };
-  print('Produk : $produkMentah');
-}
-
-
-// Langkah 2: Operator
-void langkah2Operator() {
-  print('\nLangkah 2 Operator');
-
-  //Operator Aritmatika
-  double hargaSatuan = 20000;
-  int jumlahBeli = 3;
-  double totalHarga = hargaSatuan * jumlahBeli;
-  double totalDenganOngkir = totalHarga + 5000;
-  double totalSetelahdiskon = totalDenganOngkir - 3000;
-  double hargaRatarata = totalHarga / jumlahBeli;
-  int stockAwal = 10;
-  int sisaStock = stockAwal - jumlahBeli;
-  int sisaBagitiga = stockAwal % 3;
-
-  print('Total harga          : $totalHarga');
-  print('Total + ongkir       : $totalDenganOngkir');
-  print('Total setelah diskon : $totalSetelahdiskon');
-  print('Harga rata-rata/item : $hargaRatarata');
-  print('Sisa stock           : $sisaStock');
-  print('Sisa bagi tiga       : $sisaBagitiga');
-
-  //Operator Perbandingan
-  double hargaA = 50000;
-  double hargaB = 75000;
-  int stockA = 5;
-  int stockB = 5;
-
-  print('hargaA ($hargaA) == hargaB ($hargaB) -> ${hargaA == hargaB}');
-  print('hargaA ($hargaA) != hargaB ($hargaB) -> ${hargaA != hargaB}');
-  print('hargaA ($hargaA) > hargaB ($hargaB) -> ${hargaA > hargaB}');
-  print('hargaA ($hargaA) < hargaB ($hargaB) -> ${hargaA < hargaB}');
-  print('stockA ($hargaA) >= stockB ($hargaB) -> ${stockA >= stockB}');
-  print('stockA ($hargaA) <= stockB ($hargaB) -> ${stockA <= stockB}');
-
-  // Operator Logika
-  int stock = 10;
-  double harga = 25000;
-  bool layakDitampilkan = stock > 0 && harga > 0;
-  bool adaPromoatauStokbanyak = (stock > 20) || (harga < 3000);
-  bool tidakTersedia = !layakDitampilkan;
-
-  print('Layak ditampilkan (stock>0 && harga>0  : $layakDitampilkan');
-  print('Ada promo atau stock banyak            : $adaPromoatauStokbanyak');
-  print('Tidak tersedia                         : $tidakTersedia');
-}
-
-
-//Langkah 3 Control flow untuk logika toko
-void langkah3ControlFlow() {
-  print('\nLangkah 3 Control Flow');
-
-  print('Status stock 0   : ${labelStatusProduk(0)}');
-  print('Status stock 3   : ${labelStatusProduk(3)}');
-  print('Status stock 20  : ${labelStatusProduk(20)}');
-
-  List<double> hargaBelanja = [15000, 25000, 40000];
-  print('Total belanja    : ${totalBelanja(hargaBelanja)}');
-
-  simulasiPenjualanhabis(3);
-
-  print('Diskon elektronik  : ${diskonBerdasarkanKategori('Elektronik')}%');
-  print('Diskon fashion     : ${diskonBerdasarkanKategori('Fashion')}%');
-  print('Diskon Makanan     : ${diskonBerdasarkanKategori('Makanan')}%');
-}
-
-// Langkah 4: Function Hitung Harga Setelah Diskon
-void langkah4Function() {
-  print('\n\nLangkah 4 Function');
-
-  print('Parameter biasa (100000, 10%) : ${hitungHargaSetelahDiskon(100000, 10)}');
-  print('Named parameter, tanpa diskon : ${hitungHargaSetelahDiskon2(harga: 100000)}');
-  print('Named parameter, diskon 20%   : ${hitungHargaSetelahDiskon2(harga: 100000, persenDiskon: 20)}');
-  print('Arrow function formatRupiah   : ${formatRupiah(125000)}');
-}
-
-//Langkah 5: Class Product dan Diskon Produk
-void langkah5ClassProduct() {
-  print('\n\nLangkah 5 Class Product & Null Safety');
-
-  Product product1 = Product(
-    id: 1, 
-    name: 'Sepatu Sneakers', 
-    price: 350000, 
-    imageUrl: 'https://contoh.com/sneakers.jpg', 
-    category: 'Fashion', 
-    stock: 12
-    );
-    product1.tampilkanInfo();
-
-    DiskonProduk product2 = DiskonProduk(
-      id: 2, 
-      name: 'Kaos Polos', 
-      price: 60000, 
-      imageUrl: 'https://contoh.com/kaos.jpg', 
-      category: 'Fashion', 
-      stock: 30, 
-      diskonProduk: 15
-      );
-      product2.tampilkanInfo();
-      print('Harga setelah diskon: ${product2.hitungHargaFinal()}');
 }
 
 // Data Total Belanja

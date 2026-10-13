@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'widgets/product_card2.dart';
+import 'screens/product_detail_page.dart';
 import 'models/product.dart';
+import 'screens/main_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,14 +16,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'TokoKita',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 43, 2, 116)),
       ),
-      home: Scaffold(
-        appBar: AppBar(title: const Text('TokoKita')),
-        body: ListView(
-          children: daftarProduk.map((produk) => ProductCard(product: produk)).toList(),
-        ),
-      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MainPage(),
+        '/detail': (context) {
+          final product = ModalRoute.of(context)?.settings.arguments as Product;
+          return ProductDetailPage(product: product);
+        } // Contoh penggunaan produk pertama
+      },
     );
   }
 }
