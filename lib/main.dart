@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/product_detail_page.dart';
-import 'models/product.dart';
+import 'package:get/get.dart';
 import 'screens/main_page.dart';
 
 void main() {
@@ -13,19 +12,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'TokoKita',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 43, 2, 116)),
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => MainPage(),
-        '/detail': (context) {
-          final product = ModalRoute.of(context)?.settings.arguments as Product;
-          return ProductDetailPage(product: product);
-        } // Contoh penggunaan produk pertama
-      },
+      home: const MainPage(),
     );
   }
 }
