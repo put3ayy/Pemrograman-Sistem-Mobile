@@ -17,6 +17,18 @@ class Product {
     this.description,
   });
 
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+      id: json['id'] as int,
+      name: json['title'] as String,
+      price: (json['price'] as num).toDouble(),
+      imageUrl: json['image'] as String,
+      category: json['category'] as String,
+      stock: (json['rating']?['count'] as num?)?.toInt() ?? 0,
+      description: json['description'] as String?,
+    );
+  }
+
     // Menentukan status stok berdasarkan jumlah
   String getStatusStok() {
     if (stock <= 0) {

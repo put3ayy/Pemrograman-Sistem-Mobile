@@ -7,7 +7,7 @@ class PriceLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Rp${harga.toStringAsFixed(0)}',
+      '\$${harga.toStringAsFixed(2)}',
       style: const TextStyle(fontWeight: FontWeight.w600, color: Colors.green),
     );
   }
